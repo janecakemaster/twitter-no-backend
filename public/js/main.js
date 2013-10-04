@@ -1,6 +1,9 @@
 $(function () {
 
-  var history = [];
+  //initializing variables
+  var history = []; //stores array of last 10 lookups
+  var formdata, keywords, place, sinced, untild, query, results;
+
   var matchers = [
   'consumer_key',
   'consumer_secret',
@@ -22,24 +25,18 @@ $(function () {
     return all;
   }, {});
 
-  $('.progress').html(
-    '<h3>Using Twitter credentials</h3>' +
-    '<ul>' + Object.keys(values).map(function (param) {
-      return '<li><b>' + param + '</b>: ' + values[param] + '</li>'
-    }).join('') + '</ul>' + '<hr/>'
-    );
-
   var client = new Codebird;
   client.setConsumerKey(values.consumer_key, values.consumer_secret);
   client.setToken(values.access_token, values.access_token_secret);
 
-  var formdata, keywords, place, sinced, untild, query, results;
-
+  // getting data from form
   $("form").submit(function(event) {
     $('.tweets').html('');
     formdata = $(this).serializeArray();
-    history.push(JSON.stringify(formdata) + "\n");
-    console.log(history.length);
+    if(history.length =10){
+      history.shift(); // FIFO management of history array
+    }
+    history.push(JSON.stringify(formdata) + "<br><br>");
     $('div.history').html(history);
     keywords = formdata[0].value;
     place = formdata[1].value;
