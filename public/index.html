@@ -3,26 +3,73 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Twitter Search - UI Design</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+  <div class="container">
     <div class="main">
-      
+      <form class="form-horizontal">
+        <legend>Twitter Search</legend>
+        <p class="lead">Search for tweets by keywords, place ID, and timeframe. The first 50 tweets will show up with an option to view more. Click on the tweet to view more information about it.</p>
+        <div class="control-group">
+          <label class="control-label" for="keywords">Keywords</label>
+          <div class="controls">
+            <input type="text" id="keywords" name="keywords" placeholder="separated by spaces" required>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="place">Place</label>
+          <div class="controls">
+            <input type="text" id="place" name="place" placeholder="placeID" required>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="since">Since</label>
+          <div class="controls">
+            <input type="text" id="since" name="since" placeholder="YYYY-MM-DD" required>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="until">Until</label>
+          <div class="controls">
+            <input type="text" id="until" name="until" placeholder="YYYY-MM-DD" required>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" name="submit" id="submit" class="btn">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="progress"></div>
+    <div class="results">
+      <legend>Results</legend>
+      <p class="lead">Click on the tweet to view more information about it.</p>
+      <div class="tweets"></div>
     </div>
 
-    <script type="text/javascript" src="js/vendor/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="js/vendor/codebird-js/sha1.js"></script>
-    <script type="text/javascript" src="js/vendor/codebird-js/codebird.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+    <div class="more">
+      <button type="button" class="btn" data-toggle="collapse" data-target="#more">Click to load all tweets</button>
+      <div id="more" class="collapse"> No more! </div>
+    </div>
+    <p class="lead">Created by Jane Kim. Fork on <a href="https://github.com/janecakemaster/twitter-no-backend">GitHub</a></p>
+
+  </div>
+
+  <script type="text/javascript" src="js/vendor/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/vendor/codebird-js/sha1.js"></script>
+  <script type="text/javascript" src="js/vendor/codebird-js/codebird.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>
