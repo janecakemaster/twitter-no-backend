@@ -1,5 +1,6 @@
 $(function () {
 
+  var history = [];
   var matchers = [
   'consumer_key',
   'consumer_secret',
@@ -37,6 +38,9 @@ $(function () {
   $("form").submit(function(event) {
     $('.tweets').html('');
     formdata = $(this).serializeArray();
+    history.push(JSON.stringify(formdata) + "\n");
+    console.log(history.length);
+    $('div.history').html(history);
     keywords = formdata[0].value;
     place = formdata[1].value;
     sinced = formdata[2].value;

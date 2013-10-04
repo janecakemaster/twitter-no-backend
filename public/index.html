@@ -9,7 +9,7 @@
   <title>Twitter Search - UI Design</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -20,6 +20,7 @@
       <form class="form-horizontal">
         <legend>Twitter Search</legend>
         <p class="lead">Search for tweets by keywords, place ID, and timeframe. The first 50 tweets will show up with an option to view more. Click on the tweet to view more information about it.</p>
+
         <div class="control-group">
           <label class="control-label" for="keywords">Keywords</label>
           <div class="controls">
@@ -50,6 +51,9 @@
           </div>
         </div>
       </form>
+      <h4>Past 10 searches:</h4>
+      <div class="history"></div>
+
     </div>
     <div class="progress"></div>
     <div class="results">
